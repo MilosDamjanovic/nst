@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="wrap1">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Manufacturer</th>
+          <th>Composition</th>
+          <th>Packing</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Expiration date</th>
+          <th>Production date</th>
+        </tr>
+      </thead>
+      <tr *ngFor="let medicine of medicines">
+        <td>{{medicine.id}}</td>
+        <td>{{medicine.name}}</td>
+        <td>{{medicine.manufacturer}}</td>
+        <td>{{medicine.composition}}</td>
+        <td>{{medicine.packing}}</td>
+        <td>{{medicine.price}}</td>
+        <td>{{medicine.quantity}}</td>
+        <td>{{medicine.expirationDate}}</td>
+        <td>{{medicine.productionDate}}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="wrap2">
+    onaj slajd izmedju starog i novog treba da nadjem...
+  </div>
+</div>

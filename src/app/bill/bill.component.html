@@ -1,0 +1,97 @@
+<nav-bar></nav-bar>
+<div class="page-header center-block">
+  <h1 class="text-center">Issuing a bill</h1>
+</div>
+<div class="container">
+  <form [formGroup]="billForm" (ngSubmit)="submitAccount()">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="special-width">
+          <div class="form-group">
+            <label for="issueDate">Issue date</label>
+            <input type="date" class="form-control" id="issueDate" formControlName="issueDate">
+          </div>
+          <div class="form-group">
+            <label for="issuePlace">Issue place</label>
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle btn-block text-left" type="button" id="issuePlace" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="true">
+                Issue place
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="issuePlace">
+                <li>
+                  <a href="#">Action</a>
+                </li>
+                <li>
+                  <a href="#">Another action</a>
+                </li>
+                <li>
+                  <a href="#">Something else here</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary btn-lg center-block"
+     >Add bill item</button>
+    <!-- na pritisak dugmeta treba da se otvori modalna forma za unos racuna -->
+
+    <div>
+      <table>
+        <p>ovde ce kao da se dinamicki dodaju lekovi u tabelu :D</p>
+      </table>
+    </div>
+    <!-- implementirati pagere jer pri kreiranju racuna mozda hocu jos nesto da dodam! -->
+    <!--
+    <nav aria-label="...">
+      <ul class="pager">
+        <li class="previous">
+          <a href="#">
+            <span aria-hidden="true">&larr;</span> Older</a>
+        </li>
+        <li class="next">
+          <a href="#">Newer
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    -->
+
+  <div class="panel-body table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Manufacturer</th>
+            <th>Composition</th>
+            <th>Packing</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Exporation date</th>
+            <th>Production date</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>znaci po 9</td>
+          <td>znaci po 9</td>
+          <td>znaci po 9</td>
+          <td>znaci po 9</td>
+          <td>znaci po 9</td>
+          <td>znaci po 9</td>
+          <td>znaci po 9</td>
+          <td>znaci po 9</td>
+          <td>znaci po 9</td>
+        </tr>
+      </table>
+    </div>
+    <button type="submit"
+            class="btn btn-success btn-lg center-block"
+            [disabled]="!billForm.valid">Save
+    </button>
+  </form>
+</div>

@@ -1,0 +1,85 @@
+<nav-bar></nav-bar>
+<div class="container" id="perscription">
+  <div class="col-md-offset-2">
+    <h1 class="text-center">Issuing a prescription</h1>
+    <br>
+    <form [formGroup]="perscriptionForm" (ngSubmit)="submitPerscription()">
+      <div class="formgroup">
+        <label for="doctorName">Doctor's name</label>
+        <input
+        formControlName="doctorName"
+        type="text"
+        id="doctorName"
+        class="form-control">
+      <div class="formgroup">
+          <label for="doctorSurname">Doctor's surname</label>
+          <input
+          type="text"
+          id="doctorName"
+          class="form-control"
+          formControlName="doctorSurname">
+      </div>
+      <div class="form-group">
+        <label for="diagnose">Diagnose</label>
+        <textarea
+          id="diagnose"
+          rows="3"
+          class="form-control"
+          formControlName="diagnose">
+        </textarea>
+      </div>
+      <div class="form-group">
+          <label for="medicine">Medicine</label>
+          <input
+            type="search"
+            id="medicine"
+            class="form-control"
+            formControlName="medicine"
+            placeholder="Find the appropriate medicine">
+        </div>
+        <div class="form-group">
+            <label for="quantity"> Quantity </label>
+            <input type="number"
+                   id="quantity"
+                   class="form-control"
+                   placeholder="Please specify the quantity"
+                   formControlName="quantity">
+                   <div *ngIf="quantity.touched && quantity.errors?.required"
+                         class="alert alert-danger">
+                         You must specify the quantity of the appropriate medicine.
+                   </div>
+                 </div>
+          </div>
+      <div class="form-group">
+        <label for="healthInstitution">Health institution</label>
+        <input type="text"
+         class="form-control"
+         id="healthInstitution"
+         formControlName="healthInstitution">
+      </div>
+
+<p>Ovo treba obrisati, nema potrebe da bleji ime i prezime farmaceuta</p>
+
+      <div formGroupName="pharmasist">
+        <div class="formgroup">
+            <label for="pharmasistName">Pharmasist's name</label>
+            <input
+            formControlName="pharmasistName"
+            type="text"
+            id="pharmasistName"
+            class="form-control"
+            >
+          </div>
+          <div class="form-group">
+              <label for="pharmasistSurname">Pharmasist's surname</label>
+              <input
+              type="text"
+              id="pharmasistName"
+              class="form-control"
+              formControlName="pharmasistSurname">
+          </div>
+        </div>
+    </form>
+    <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
+  </div>
+</div>
