@@ -1,6 +1,7 @@
 // this is the extraceed material
 // MATERIAL PACKAGE IMPORTS AND EXPORTS\
 // func
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { NgModule } from "@angular/core";
 import {
@@ -17,12 +18,17 @@ import {
   MatSidenavModule,
   MatToolbarModule,
   MatIconModule,
+  MatCheckboxModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatListModule,
 } from "@angular/material";
 
-import { MatDatepickerModule } from "@angular/material/datepicker";
+
 
 @NgModule({
   imports: [
+    BrowserAnimationsModule,
     MatButtonModule,
     MatChipsModule,
     MatInputModule,
@@ -32,7 +38,11 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
     MatNativeDateModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatListModule,
+    MatSidenavModule
   ],
   exports: [
     MatButtonModule,
@@ -44,7 +54,11 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
     MatTableModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatListModule,
+    MatSidenavModule
   ]
 })
 export class MaterialModule {}

@@ -8,7 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class PerscriptionFormComponent implements OnInit {
 
-  //doktor i lek su jedna grupa, ostali su druga
+  // doktor i lek su jedna grupa, ostali su druga
   perscriptionForm = new FormGroup({
     doctorName: new FormControl('', Validators.required),
     doctorSurname: new FormControl('', Validators.required),
@@ -27,29 +27,28 @@ export class PerscriptionFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  get doctorsName(){
+  get doctorsName() {
     return this.perscriptionForm.get('doctorsName');
   }
-  get doctorsSurname(){
+  get doctorsSurname() {
     return this.perscriptionForm.get('doctorsSurname');
   }
-  get diagnose(){
+  get diagnose() {
     return this.perscriptionForm.get('diagnose');
   }
-  get quantity(){
+  get quantity() {
     return this.perscriptionForm.get('diagnose');
   }
-  get healthInstitution(){
+  get healthInstitution() {
     return this.perscriptionForm.get('diagnose');
   }
-  get pharmasistName(){
+  get pharmasistName() {
     return this.perscriptionForm.get('pharmasistName');
   }
-  get pharmasistSurname(){
+  get pharmasistSurname() {
     return this.perscriptionForm.get('pharmasistSurname');
   }
-  
-  submitPercription(){
+  submitPercription() {
 
   }
 

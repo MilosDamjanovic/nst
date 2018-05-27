@@ -1,3 +1,4 @@
+import { Perscription } from './../model/perscription';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerscriptionComponent implements OnInit {
 
-  perscriptionForm = new FormControlGroup({
+  perscriptionForm = new FormGroup ({
     doctorName: new FormControl('', Validators.required),
     doctorSurname: new FormControl('', Validators.required),
     diagnose: new FormControl('', Validators.maxLength(255)),

@@ -1,9 +1,10 @@
+import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { Response, Http, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs';
+
 
 @Injectable()
-export class AuthenticationServiceService {
+export class AuthenticationService {
 
   public token: string;
 
@@ -18,7 +19,7 @@ export class AuthenticationServiceService {
     let options = new RequestOptions({ headers: headers });
     return this.http.post('/login', credentials)
       .map((response: Response) => {
-        //let token = response.json() && response.json().token;
+        // let token = response.json() && response.json().token;
         let token = response.text;
         console.log(token);
         return true;

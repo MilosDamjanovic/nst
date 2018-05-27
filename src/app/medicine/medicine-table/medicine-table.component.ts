@@ -1,22 +1,21 @@
-import { MedicineService } from './../services/medicine.service';
+
 import { Component, OnInit } from '@angular/core';
+import { MedicineService } from '../../services/medicine.service';
 
 @Component({
-  selector: 'medicine-table',
+  selector: 'nst-medicine-table',
   templateUrl: './medicine-table.component.html',
   styleUrls: ['./medicine-table.component.css']
 })
 export class MedicineTableComponent implements OnInit {
 
-  //bindovanje propertija lekova sa tabelom
-  //iz forme da se ubaci u tabelu, dinamicki
-  //imacu 2 tabele, jedna za bazu, druga za nove lekove
+  // bindovanje propertija lekova sa tabelom
+  // iz forme da se ubaci u tabelu, dinamicki
+  // imacu 2 tabele, jedna za bazu, druga za nove lekove
 
   medicines: any[];
 
-  constructor(
-    //private medicineService: MedicineService
-  ) { }
+  constructor(private medicineService: MedicineService) { }
 
 
   ngOnInit() {

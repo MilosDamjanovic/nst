@@ -1,14 +1,12 @@
-<!--<div class="jumbotron">
-    <div class="container">
-        <div class="col-sm-8 col-sm-offset-2">
-            <router-outlet></router-outlet>
-        </div>
-    </div>
-</div>
--->
-
-<div class="jumbotron">
-    <!-- nema kontejnera kako bismo nav bar rasirili preko celog ekrana -->
-        <router-outlet></router-outlet>
-
-</div>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav role="navigation">
+    <!--side navigation, by default toggle is hidden opened=true -->
+    <nst-side-nav (sidenavToggle)="sidenav.close()"> </nst-side-nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <nst-nav-bar (sideNavToggle)="sidenav.toggle()"> </nst-nav-bar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
