@@ -1,33 +1,58 @@
-<div class="container">
-  <div class="wrap1">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Manufacturer</th>
-          <th>Composition</th>
-          <th>Packing</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Expiration date</th>
-          <th>Production date</th>
-        </tr>
-      </thead>
-      <tr *ngFor="let medicine of medicines">
-        <td>{{medicine.id}}</td>
-        <td>{{medicine.name}}</td>
-        <td>{{medicine.manufacturer}}</td>
-        <td>{{medicine.composition}}</td>
-        <td>{{medicine.packing}}</td>
-        <td>{{medicine.price}}</td>
-        <td>{{medicine.quantity}}</td>
-        <td>{{medicine.expirationDate}}</td>
-        <td>{{medicine.productionDate}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="wrap2">
-    onaj slajd izmedju starog i novog treba da nadjem...
-  </div>
+<div fxLayoutAllign="center center">
+  <mat-form-field fxFlex="40%">
+    <input type="text" name="filerInput" id="filter" (keyup)="doFilter($event.target.value)" placeholder="Input filter">
+  </mat-form-field>
+</div>
+
+<div>
+  <table mat-table [dataSource]="dataSource" mat-Sort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="medicineID">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="manufacturer">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Manufacturer </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.manufacturer}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="composition">
+      <th mat-header-cell *matHeaderCellDef> Composition </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.composition}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.quantity | number}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.price | number}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="packing">
+      <th mat-header-cell *matHeaderCellDef> Packing </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.packing}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="productionDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Production date | Date </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.productionDate}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>

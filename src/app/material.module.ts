@@ -3,7 +3,7 @@
 // func
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 import {
   MatButtonModule,
   MatInput,
@@ -22,7 +22,9 @@ import {
   MatDatepickerModule,
   MatDialogModule,
   MatListModule,
-} from "@angular/material";
+  MatPaginatorModule,
+  MatSortModule
+} from '@angular/material';
 
 
 
@@ -42,7 +44,9 @@ import {
     MatCheckboxModule,
     MatDialogModule,
     MatListModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   exports: [
     MatButtonModule,
@@ -58,7 +62,9 @@ import {
     MatCheckboxModule,
     MatDialogModule,
     MatListModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatPaginatorModule,
+    MatSortModule
   ]
 })
 export class MaterialModule {}
