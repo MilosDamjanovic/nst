@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
@@ -11,25 +11,26 @@ import { AuthenticationService } from '../services/authentication.service';
 export class LoginFormComponent implements OnInit {
 
   isLogin: boolean;
-  loginForm;
+  loginForm: FormGroup;
+
   constructor(
     private router: Router,
     private authService: AuthenticationService
   ) { }
 
+  private validationMessages = {
+    required: 'Please enter your valid username.',
+    email: 'Please enter a valid password (min 3 characters).'
+  };
+
   ngOnInit() {
     this.loginForm = new FormGroup({
-      username: new FormControl('', [
-      Validators.required,
-      Validators.minLength(3)]),
+      username: new FormControl('', [Validators.required, Validators.minLength(3)]),
       password: new FormControl('', [ Validators.required, Validators.minLength(3)])
     });
   }
 
-
-
   get username() {
-    console.log(this.loginForm.get('username'));
     return this.loginForm.get('username');
   }
 
@@ -38,11 +39,16 @@ export class LoginFormComponent implements OnInit {
   }
 
   login() {
-    console.log(this.username.value+" "+this.password.value);
+    console.log(this.username.value + ' ' + this.password.value);
     let credentials = {
-      "username": this.username.value,
-      "password": this.password.value
+      'username': this.username.value,
+      'password': this.password.value
     };
+  }
+
+  isLoginFormValid(c: AbstractControl): boolean {
+    return c.invalid && (c.dirty || c.touched);
+    }
     /*
     this.authService.login(credentials)
     .subscribe(result=>{
@@ -53,5 +59,4 @@ export class LoginFormComponent implements OnInit {
       }
     });
     */
-  }
 }

@@ -20,9 +20,10 @@ import { BillComponent } from './bill/bill.component';
 import { BillItemComponent } from './bill-item/bill-item.component';
 import { PerscriptionComponent } from './perscription/perscription.component';
 import { SideNavComponent } from './navigation/side-nav/side-nav.component';
-import {MedicineDialogComponent} from './medicine/medicine-table/medicine.dialog.component'
+import {MedicineDialogComponent} from './medicine/medicine-table/medicine.dialog.component';
 import { AuthenticationService } from './services/authentication.service';
 import { HttpModule } from '@angular/http';
+import { MedicineDetailComponent } from './medicine/medicine-detail/medicine-detail.component';
 
 
 
@@ -38,6 +39,7 @@ import { HttpModule } from '@angular/http';
     BillItemComponent,
     PerscriptionComponent,
     SideNavComponent,
+    MedicineDetailComponent,
     MedicineDialogComponent
   ],
   imports: [

@@ -1,4 +1,4 @@
-<section class="login-form">
+<section fxFlexFill class="wrapper login-form row-height">
     <form [formGroup]="loginForm"
       (ngSubmit)="login()"
       fxLayout="column"
@@ -7,21 +7,37 @@
       <mat-form-field>
         <input type="email"
          placeholder="Enter your username"
-         matInput>
+         matInput
+         formControlName="username"
+        >
       </mat-form-field>
+        <mat-error class="invalid-feedback" *ngIf="isLoginFormValid(loginForm.get('username'))">
+          Username shoud be more than 3 characters long.
+        </mat-error>
         <mat-form-field hintLabel="Should have at least 6 characters.">
           <input type="password"
           placeholder="Enter your password"
           matInput
           formControlName="password">
       </mat-form-field>
-        <button mat-raised-button color="primary" type="submit">Login</button>
+      <mat-error class="invalid-feedback" *ngIf="isLoginFormValid(loginForm.get('password'))">
+        The password must be longer than 3 characters
+      </mat-error>
         <!-- da se ubaci da zapamti token? -->
+        <!--
         <mat-checkbox fxAllign="center"
          color="accent"
-         name="agree">
+         name="agree"
+         formControlName="checkbox">
          Agree to terms and conditions
        </mat-checkbox>
+      -->
+       <button mat-raised-button color="primary"
+               type="submit"
+               [disabled]="!loginForm.valid">
+               Login
+      </button>
+
     </form>
 </section>
 

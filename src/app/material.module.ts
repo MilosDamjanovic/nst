@@ -6,11 +6,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import {
   MatButtonModule,
-  MatInput,
   MatChipsModule,
-  MatCheckbox,
   MatTableDataSource,
-  MatFormField,
   MatInputModule,
   MatFormFieldModule,
   MatNativeDateModule,

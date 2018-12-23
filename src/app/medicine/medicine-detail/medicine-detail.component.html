@@ -1,0 +1,306 @@
+  <form [formGroup]="medicineForm" (ngSubmit)="saveMedicine()">
+    <div class="form-group">
+      <label for="medicineName"> Name </label>
+      <input formControlName="medicineName"
+            type="text"
+            class="form-control"
+            id="medicineName"
+            placeholder="Please enter the medicine name">
+        <mat-error *ngIf="medicineName.touched && medicineName.errors?.required"
+            class="alert alert-danger">
+            You must enter a valid medicine name
+        </mat-error>
+        <mat-error *ngIf="medicineName.errors?.minlength"
+              class="alert alert-danger">
+              Medicine name should have minimum {{medicineName.errors.minlength.requiredLength}} characters.
+        </mat-error>
+        <!-- <div *ngIf="medicineName.errors.cannotContainSpace" class="alert alert-danger"> medicineName cannon contain space </div> -->
+    </div>
+    <div class="form-group">
+      <label for="manufacturer"> Manufacturer </label>
+      <input type="text"
+      class="form-control"
+      id="manufacturer"
+      placeholder="Please enter the manufacturers name"
+      formControlName="manufacturer">
+      <mat-error *ngIf="manufacturer.touched && manufacturer.errors?.required"
+        class="alert alert-danger">
+        You must specify the manufacturers name
+      </mat-error>
+    </div>
+    <div class="form-group">
+      <label class="center-block" for="composition"> Composition </label>
+      <textarea id="composition"
+      class="form-control"
+      rows="3"
+      placeholder="Please specify the composition"
+      formControlName="composition">
+      <mat-error *ngIf="composition.touched && composition.errors?.required"
+      class="alert alert-danger">
+      Please specify the composition of the medicine.
+      </mat-error>
+      </textarea>
+    </div>
+
+    <!-- u form-inline treba srediti width -->
+    <div formGroupName="currency" class="form-inline">
+      <div class="form-group">
+        <label class="sr-only" for="price">Price (in dinars)</label>
+        <div class="input-group">
+          <div class="input-group-addon">DIN</div>
+          <input type="number"
+                class="form-control"
+                id="price"
+                placeholder="Price"
+                formControlName="price">
+          <div class="input-group-addon">.00</div>
+          <div *ngIf="price.touched && price.errors?.required"
+          class="alert alert-danger">
+          Please specify the price
+        </div>
+        <!--
+          OVDE SAMO BROJKE MOGU DA SE UNOSE
+            <div *ngIf="price.touched && price.invalid"
+            class="alert alert-danger">
+            Please specify the price
+          </div>
+        -->
+        </div>
+      </div>
+
+      <div class="form-group pull-right">
+        <label for="packing">Packing type</label>
+        <select name="packing" id="packing" class="form-control">
+          <option value="videcemo"></option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="quantity"> Quantity </label>
+      <input type="number"
+            id="quantity"
+            class="form-control"
+            placeholder="Please specify the quantity"
+            formControlName="quantity">
+            <mat-error *ngIf="quantity.touched && quantity.errors"
+            class="alert alert-danger">
+            Please specify the quantity
+            </mat-error>
+            <!--
+              OVDE ISTO SAMO INTEGERI DA SE UNOSE
+            <div *ngIf="quantity.touched && quantity.invalid"
+            class="alert alert-danger">
+            Please specify the quantity
+          </div>
+          -->
+    </div>
+
+    <!-- Pazi, forma u okviru forme -->
+    <br>
+
+      <div formGroupName="dates" class="form-inline">
+        <div class="form-group">
+          <label for="expirationDate"> Expiration date </label>
+          <input type="date"
+          id="expirationDate"
+            class="expirationDate"
+            placeholder="Please specify the expiration date"
+            formControlName="expirationDate">
+        </div>
+        <div class="form-group pull-right">
+          <label for="productionDate"> Production date</label>
+          <input type="date"
+          id="productionDate"
+            class="productionDate"
+            placeholder="Please specify the production date"
+            formControlName="productionDate">
+        </div>
+      </div>
+
+    <br>
+    <br>
+    <button type="submit"
+            class="btn btn-primary btn-lg btn-block"
+            [disabled]="!medicineForm.valid">Submit</button>
+
+    <p>Form value: {{ medicineForm.value | json }}</p>
+    <p>Form value: {{ medicineForm.status | json }}</p>
+
+    <!-- tabelarni prikaz svih lekova 
+      <mat-dialog-actions>
+        <button mat-raised [mat-dialog-close]="true"> Yes </button>
+        <button mat-raised [mat-dialog-close]="false"> No </button>
+      </mat-dialog-actions>
+     -->
+
+     <div class="form-group row mb-2">
+      <div class="offset-md-2 col-md-4">
+        <button class="btn btn-primary mr-3"
+                style="width:80px;"
+                type="submit"
+                [title]="medicineForm.valid ? 'Save your entered medicine data' : 'Disabled until the form data is valid'"
+                [disabled]="!medicineForm.valid">
+          Save
+        </button>
+        <button class="btn btn-outline-secondary mr-3"
+                style="width:80px;"
+                type="button"
+                title="Cancel your edits"
+                [routerLink]="['/medecines']">
+          Cancel
+        </button>
+        <button class="btn btn-outline-warning"
+                style="width:80px"
+                type="button"
+                title="Delete this product"
+                (click)="deleteMedicine()">
+          Delete
+        </button>
+      </div>
+    </div>
+      
+  </form>
+
+  <!--
+
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form novalidate
+          (ngSubmit)="saveProduct()"
+          [formGroup]="productForm">
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="productNameId">Product Name</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="productNameId"
+                 type="text"
+                 placeholder="Name (required)"
+                 formControlName="productName"
+                 [ngClass]="{'is-invalid': displayMessage.productName }" />
+          <span class="invalid-feedback">
+            {{displayMessage.productName}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="productCodeId">Product Code</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="productCodeId"
+                 type="text"
+                 placeholder="Code (required)"
+                 formControlName="productCode"
+                 [ngClass]="{'is-invalid': displayMessage.productCode}" />
+          <span class="invalid-feedback">
+            {{displayMessage.productCode}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="starRatingId">Star Rating (1-5)</label>
+
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="starRatingId"
+                 type="text"
+                 placeholder="Rating (1-5)"
+                 formControlName="starRating"
+                 [ngClass]="{'is-invalid': displayMessage.starRating}" />
+          <span class="invalid-feedback">
+            {{displayMessage.starRating}}
+          </span>
+        </div>
+      </div>
+
+      <div formArrayName="tags">
+        <div class="form-group row mb-2"
+             *ngFor="let tag of tags.controls; let i=index">
+          <label class="col-md-2 col-form-label"
+                 [attr.for]="i">Tag</label>
+
+          <div class="col-md-8">
+            <input class="form-control"
+                   [id]="i"
+                   type="text"
+                   placeholder="Tag"
+                   [formControlName]="i" />
+          </div>
+          <button class="col-md-1 btn btn-outline-warning btn-sm"
+                  type="button"
+                  title="Delete this search tag"
+                  (click)="deleteTag(i)">Delete Tag
+          </button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1 mb-2">
+          <button class="btn btn-outline-secondary btn-sm"
+                  type="button"
+                  title="Add a search tag"
+                  (click)="addTag()">Add Tag
+          </button>
+        </div>
+      </div>
+      
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="descriptionId">Description</label>
+
+        <div class="col-md-8">
+          <textarea class="form-control"
+                    id="descriptionId"
+                    placeholder="Description"
+                    rows=3
+                    formControlName="description"
+                    [ngClass]="{'is-invalid': displayMessage.description}"></textarea>
+          <span class="invalid-feedback">
+            {{ displayMessage.description}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px;"
+                  type="submit"
+                  [title]="productForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!productForm.valid">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px;"
+                  type="button"
+                  title="Cancel your edits"
+                  [routerLink]="['/products']">
+            Cancel
+          </button>
+          <button class="btn btn-outline-warning"
+                  style="width:80px"
+                  type="button"
+                  title="Delete this product"
+                  (click)="deleteProduct()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>
+-->

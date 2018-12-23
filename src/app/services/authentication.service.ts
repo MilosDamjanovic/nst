@@ -10,17 +10,17 @@ export class AuthenticationService {
 
   constructor(private http: Http) {
    // JSON.parse(localStorage.getItem('currentUser'));
-    var currentUser = 'llol';
-    this.token = currentUser && this.token;
+   // var currentUser = 'llol';
+  //  this.token = currentUser && this.token;
   }
   login(credentials): Observable<boolean> {
     // let credentials = JSON.parse('{"username":"+username+", "password":"+password+"}')
-    let headers = new Headers({ 'Authorization': 'Basic ' + this.token, 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    const headers = new Headers({ 'Authorization': 'Basic ' + this.token, 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
     return this.http.post('/login', credentials)
       .map((response: Response) => {
         // let token = response.json() && response.json().token;
-        let token = response.text;
+        const token = response.text;
         console.log(token);
         return true;
       });

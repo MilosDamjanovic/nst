@@ -13,7 +13,6 @@ export class MedicineTableComponent implements OnInit, AfterViewInit {
 
   // bindovanje propertija lekova sa tabelom
   // iz forme da se ubaci u tabelu, dinamicki
-  // imacu 2 tabele, jedna za bazu, druga za nove lekove
 
   displayedColumns = ['ID', 'Name', 'Manufacturer', 'Composition', 'Quantity', 'Price', 'Production date'];
   dataSource = new MatTableDataSource<Medicine>();
@@ -26,15 +25,15 @@ export class MedicineTableComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit() {
-    this.medicineService.getAll().subscribe(medicine => this.medicines = medicine);
-    this.dataSource.data = this.medicines;
+  //  this.medicineService.getAll().subscribe(medicine => this.medicines = medicine);
+  //  this.dataSource.data = this.medicines;
    // this.medicineService.getAll().subscribe(medicine => this.medicines = medicine);
   }
   ngAfterViewInit() {
     // sortiranje tabela
-    this.dataSource.sort = this.sort;
+      // this.dataSource.sort = this.sort;
     // paginator
-    this.dataSource.paginator = this.paginator;
+      // this.dataSource.paginator = this.paginator;
   }
 
   doFilter(filterValue: string) {

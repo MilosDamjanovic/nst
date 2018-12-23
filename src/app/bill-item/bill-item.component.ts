@@ -1,23 +1,22 @@
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Medicine } from '../model/medicine';
 
 @Component({
-  selector: 'bill-item',
+  selector: 'nst-bill-item',
   templateUrl: './bill-item.component.html',
   styleUrls: ['./bill-item.component.css']
 })
 export class BillItemComponent implements OnInit {
-
-
-
-  billItemForm = new FormGroup({
-    medicine: new FormControl('')
-  });
+  medicine: Medicine;
+  billItemForm: FormGroup;
 
   constructor() { }
 
   ngOnInit() {
+    this.billItemForm = new FormGroup({
+      quantity: new FormControl('')
+    });
   }
 
-  
 }

@@ -1,15 +1,17 @@
 <div fxLayoutAllign="center center">
   <mat-form-field fxFlex="40%">
-    <input type="text" name="filerInput" id="filter" (keyup)="doFilter($event.target.value)" placeholder="Input filter">
+    <input matInput type="text" name="filerInput"
+     id="filter" (keyup)="doFilter($event.target.value)"
+     placeholder="Input filter">
   </mat-form-field>
 </div>
 
 <div>
-  <table mat-table [dataSource]="dataSource" mat-Sort class="mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" mat-sort class="mat-elevation-z8">
 
     <ng-container matColumnDef="medicineID">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-      <td mat-cell *matCellDef="let medicine"> {{medicine.id}} </td>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.medicineID}} </td>
     </ng-container>
 
     <!-- Name Column -->
@@ -18,33 +20,37 @@
       <td mat-cell *matCellDef="let medicine"> {{medicine.name}} </td>
     </ng-container>
 
-    <!-- Weight Column -->
+    <!-- Manufacturer Column -->
     <ng-container matColumnDef="manufacturer">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Manufacturer </th>
       <td mat-cell *matCellDef="let medicine"> {{medicine.manufacturer}} </td>
     </ng-container>
 
-    <!-- Symbol Column -->
+    <!-- Composition Column -->
     <ng-container matColumnDef="composition">
       <th mat-header-cell *matHeaderCellDef> Composition </th>
       <td mat-cell *matCellDef="let medicine"> {{medicine.composition}} </td>
     </ng-container>
 
+        <!-- Quantity  Column -->
     <ng-container matColumnDef="quantity">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
       <td mat-cell *matCellDef="let medicine"> {{medicine.quantity | number}} </td>
     </ng-container>
 
+      <!-- Price Column -->
     <ng-container matColumnDef="price">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
       <td mat-cell *matCellDef="let medicine"> {{medicine.price | number}} </td>
     </ng-container>
 
+    <!-- Packing Column -->
     <ng-container matColumnDef="packing">
       <th mat-header-cell *matHeaderCellDef> Packing </th>
       <td mat-cell *matCellDef="let medicine"> {{medicine.packing}} </td>
     </ng-container>
 
+    <!-- Production date-->
     <ng-container matColumnDef="productionDate">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Production date | Date </th>
       <td mat-cell *matCellDef="let medicine"> {{medicine.productionDate}} </td>
@@ -53,6 +59,8 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-  </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons>
+  </mat-paginator>
 </div>

@@ -1,15 +1,17 @@
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { BillItem } from '../model/bill-item';
 
 @Component({
-  selector: 'bill',
+  selector: 'nst-bill',
   templateUrl: './bill.component.html',
   styleUrls: ['./bill.component.css']
 })
 export class BillComponent implements OnInit {
+  billItems: BillItem[];
 
-  public visibleBillItem=false;
-  public visibleAnimate=false;
+  public visibleBillItem = false;
+  public visibleAnimate = false;
 
   billForm = new FormGroup({
     issueDate: new FormControl('')

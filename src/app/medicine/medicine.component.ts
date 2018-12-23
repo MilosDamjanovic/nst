@@ -10,12 +10,14 @@ import { MedicineDialogComponent } from './medicine-table/medicine.dialog.compon
   styleUrls: ['./medicine.component.css']
 })
 export class MedicineComponent implements OnInit {
-
+  pageTitle = 'Please enter new medecine';
   medicine: any[];
 
 //  private medicineService: MedicineService
 
-  constructor(private dialog: MatDialog, private medicineService: MedicineService) { }
+  constructor(private dialog: MatDialog,
+    // private medicineService: MedicineService
+    ) { }
 
   ngOnInit() {
    /* this.medicineService.getAll().subscribe(medicine=>this.medicine=medicine);
