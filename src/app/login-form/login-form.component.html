@@ -1,9 +1,6 @@
-<section fxFlexFill class="wrapper login-form row-height">
+<section class="wrapper login-form row-height">
     <form [formGroup]="loginForm"
-      (ngSubmit)="login()"
-      fxLayout="column"
-      fxLayoutAlign="center center"
-      fxLayoutGap="10px">
+      (ngSubmit)="login()">
       <mat-form-field>
         <input type="email"
          placeholder="Enter your username"

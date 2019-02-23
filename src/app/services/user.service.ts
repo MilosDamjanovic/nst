@@ -1,14 +1,12 @@
-import { User } from '../model/user';
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
 import { AuthenticationService } from './authentication.service';
 
 @Injectable()
 export class UserServiceService {
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private authenticationService: AuthenticationService) {
      }
    //  getUsers(): Observable<User[]> {

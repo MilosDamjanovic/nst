@@ -11,7 +11,7 @@ import { Medicine } from '../../model/medicine';
   styleUrls: ['./medicine-detail.component.css']
 })
 export class MedicineDetailComponent implements OnInit {
-  pageTitle = 'Add medicine'
+  pageTitle = 'Add medicine';
   medicineForm: FormGroup;
   medicine: Medicine;
 
