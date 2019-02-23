@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class AuthenticationService {
 
   public token: string;
+  isAuthenticated$ = new BehaviorSubject(false);
 
   constructor(private http: HttpClient) {
    // JSON.parse(localStorage.getItem('currentUser'));
@@ -27,4 +28,12 @@ export class AuthenticationService {
       });
   }
   */
+  logout() {
+    this.setToken('');
+  }
+    // TOKEN
+    setToken(token) {
+      localStorage.setItem('token', token);
+      this.isAuthenticated$.next(token !== ''); // Could be more Robust
+    }
 }

@@ -6,9 +6,30 @@ import { AuthenticationService } from '../services/authentication.service';
 @Component({
   selector: 'nst-login-form',
   templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.css']
+  styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
+  filters = [
+    'ig-xpro2',
+    'ig-willow',
+    'ig-walden',
+    'ig-valencia',
+    'ig-toaster',
+    'ig-sutro',
+    'ig-sierra',
+    'ig-rise',
+    'ig-nashville',
+    'ig-mayfair',
+    'ig-lofi',
+    'ig-kelvin',
+    'ig-inkwell',
+    'ig-hudson',
+    'ig-hefe',
+    'ig-earlybird',
+    'ig-brannan',
+    'ig-amaro',
+    'ig-1977'
+  ];
 
   isLogin: boolean;
   loginForm: FormGroup;
@@ -25,17 +46,17 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-      username: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      password: new FormControl('', [ Validators.required, Validators.minLength(3)])
+      Username: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      Password: new FormControl('', [ Validators.required, Validators.minLength(3)])
     });
   }
 
   get username() {
-    return this.loginForm.get('username');
+    return this.loginForm.get('Username');
   }
 
   get password() {
-    return this.loginForm.get('password');
+    return this.loginForm.get('Password');
   }
 
   login() {
@@ -45,6 +66,8 @@ export class LoginFormComponent implements OnInit {
       'password': this.password.value
     };
   }
+
+  chosenFilter = this.filters[Math.floor(Math.random() * this.filters.length)];
 
   isLoginFormValid(c: AbstractControl): boolean {
     return c.invalid && (c.dirty || c.touched);

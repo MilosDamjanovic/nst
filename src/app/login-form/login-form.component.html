@@ -1,42 +1,56 @@
-<section class="wrapper login-form row-height">
-    <form [formGroup]="loginForm"
-      (ngSubmit)="login()">
-      <mat-form-field>
-        <input type="email"
-         placeholder="Enter your username"
-         matInput
-         formControlName="username"
-        >
-      </mat-form-field>
-        <mat-error class="invalid-feedback" *ngIf="isLoginFormValid(loginForm.get('username'))">
-          Username shoud be more than 3 characters long.
-        </mat-error>
-        <mat-form-field hintLabel="Should have at least 6 characters.">
-          <input type="password"
-          placeholder="Enter your password"
-          matInput
-          formControlName="password">
-      </mat-form-field>
-      <mat-error class="invalid-feedback" *ngIf="isLoginFormValid(loginForm.get('password'))">
-        The password must be longer than 3 characters
-      </mat-error>
-        <!-- da se ubaci da zapamti token? -->
-        <!--
-        <mat-checkbox fxAllign="center"
-         color="accent"
-         name="agree"
-         formControlName="checkbox">
-         Agree to terms and conditions
-       </mat-checkbox>
-      -->
-       <button mat-raised-button color="primary"
-               type="submit"
-               [disabled]="!loginForm.valid">
-               Login
-      </button>
+<div class="container">
+    <div class="card-wrapper">
+        <mat-card class="mat-elevation-z1">
+            <mat-card-header>
+              <mat-card-title>
+                <h2>Login</h2>
+              </mat-card-title>
+            </mat-card-header>
+      <!--USERNAME INPUT START-->
+          <form [formGroup]="loginForm" class="login-form"
+            (ngSubmit)="login()">
+            <mat-form-field>
+              <input type="email"
+              placeholder="Enter your username"
+              matInput
+              formControlName="Username">
+            </mat-form-field>
+              <mat-error class="invalid-feedback" *ngIf="isLoginFormValid(loginForm.get('username'))">
+                Username shoud be more than 3 characters long.
+              </mat-error>
+          <!--USERNAME INPUT END-->
 
-    </form>
-</section>
+          <!--PASSWORD INPUT START -->
+              <mat-form-field hintLabel="Should have at least 6 characters.">
+                <input type="password"
+                placeholder="Enter your password"
+                matInput
+                formControlName="Password">
+            </mat-form-field>
+            <mat-error class="invalid-feedback" *ngIf="isLoginFormValid(loginForm.get('password'))">
+              The password must be longer than 3 characters
+            </mat-error>
+          <!--PASSWORD INPUT END -->
+              <!-- da se ubaci da zapamti token? -->
+              <!--
+              <mat-checkbox fxAllign="center"
+              color="accent"
+              name="agree"
+              formControlName="checkbox">
+              Agree to terms and conditions
+            </mat-checkbox>
+            -->
+            <button mat-raised-button color="primary"
+                    type="submit"
+                    [disabled]="!loginForm.valid">
+                    Login
+            </button>
+
+          </form>
+        </mat-card>
+    </div>
+</div>
+<div class="background" [ngClass]="chosenFilter"></div>
 
 
 

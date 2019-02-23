@@ -5,7 +5,7 @@ import { BillItem } from '../model/bill-item';
 @Component({
   selector: 'nst-bill',
   templateUrl: './bill.component.html',
-  styleUrls: ['./bill.component.css']
+  styleUrls: ['./bill.component.scss']
 })
 export class BillComponent implements OnInit {
   billItems: BillItem[];

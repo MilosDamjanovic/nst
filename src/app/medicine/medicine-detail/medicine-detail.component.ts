@@ -8,7 +8,7 @@ import { Medicine } from '../../model/medicine';
 @Component({
   selector: 'nst-medicine-detail',
   templateUrl: './medicine-detail.component.html',
-  styleUrls: ['./medicine-detail.component.css']
+  styleUrls: ['./medicine-detail.component.scss']
 })
 export class MedicineDetailComponent implements OnInit {
   pageTitle = 'Add medicine';

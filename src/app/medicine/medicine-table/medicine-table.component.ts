@@ -7,7 +7,7 @@ import { Medicine } from '../../model/medicine';
 @Component({
   selector: 'nst-medicine-table',
   templateUrl: './medicine-table.component.html',
-  styleUrls: ['./medicine-table.component.css']
+  styleUrls: ['./medicine-table.component.scss']
 })
 export class MedicineTableComponent implements OnInit, AfterViewInit {
 

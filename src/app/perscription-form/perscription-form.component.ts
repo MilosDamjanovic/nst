@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'perscription-form',
   templateUrl: './perscription-form.component.html',
-  styleUrls: ['./perscription-form.component.css']
+  styleUrls: ['./perscription-form.component.scss']
 })
 export class PerscriptionFormComponent implements OnInit {
 

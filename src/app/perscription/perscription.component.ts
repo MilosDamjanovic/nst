@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'nst-perscription',
   templateUrl: './perscription.component.html',
-  styleUrls: ['./perscription.component.css']
+  styleUrls: ['./perscription.component.scss']
 })
 export class PerscriptionComponent implements OnInit {
 

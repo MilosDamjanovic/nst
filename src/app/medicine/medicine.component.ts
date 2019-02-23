@@ -7,7 +7,7 @@ import { MedicineDialogComponent } from './medicine-table/medicine.dialog.compon
 @Component({
   selector: 'nst-medicine',
   templateUrl: './medicine.component.html',
-  styleUrls: ['./medicine.component.css']
+  styleUrls: ['./medicine.component.scss']
 })
 export class MedicineComponent implements OnInit {
   pageTitle = 'Please enter new medecine';

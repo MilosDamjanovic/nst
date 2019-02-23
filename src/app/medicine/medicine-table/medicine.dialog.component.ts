@@ -5,7 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'nst-medicine-dialog',
   templateUrl: './medicine-dialog.component.html',
-  styleUrls: ['./medicine-dialog.component.css']
+  styleUrls: ['./medicine-dialog.component.scss']
 })
 export class MedicineDialogComponent{
 
