@@ -1,9 +1,176 @@
 <div>
-  <h1 class="text-center">{{pageTitle}}</h1>
-
-  <nst-medicine-table> </nst-medicine-table>
-
-  <button mat-raised-button id="medicine-submit"
-          color="primary"
-          click="submitMedicine()"> Sumbit medicine </button>
+  <h1 class="text-center">{{ pageTitle }}</h1>
 </div>
+
+<!-- <nst-medicine-table> </nst-medicine-table> -->
+<div class="card-wrapper">
+  <mat-card class="mat-elevation-z1">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>Medecine Form</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <form novalidate (ngSubmit)="saveMedecine()" [formGroup]="medecineForm">
+      <!--MEDECINE NAME START -->
+      <mat-form-field class="full-width">
+        <input
+          class="form-control"
+          type="text"
+          matInput
+          placeholder="Medicine name (required)"
+          formControlName="MedecineName"
+        />
+      </mat-form-field>
+      <span class="invalid-feedback"> </span>
+      <!--MEDECINE NAME END -->
+
+      <mat-form-field class="full-width">
+        <input
+          class="form-control"
+          type="text"
+          matInput
+          placeholder="Quantity (required)"
+          formControlName="Quantity"
+        />
+      </mat-form-field>
+      <span class="invalid-feedback"> </span>
+
+      <!--
+      <div formArrayName="tags">
+        <div class="form-group row mb-2" *ngFor="let tag of tags.controls; let i=index">
+          <label class="col-md-2 col-form-label" [attr.for]="i">Tag</label>
+
+          <div class="col-md-8">
+            <input class="form-control" [id]="i" type="text" placeholder="Tag" [formControlName]="i" />
+          </div>
+          <button class="col-md-1 btn btn-outline-warning btn-sm" type="button" title="Delete this search tag"
+            (click)="deleteTag(i)">Delete Tag
+          </button>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-1 mb-2">
+          <button class="btn btn-outline-secondary btn-sm" type="button" title="Add a search tag" (click)="addTag()">Add
+            Tag
+          </button>
+        </div>
+      </div>
+            -->
+
+      <!--MEDECINE COMPOSITION START-->
+      <mat-form-field class="full-width">
+        <textarea
+          class="form-control"
+          placeholder="Composition"
+          rows="3"
+          matInput
+          [cdkTextareaAutosize]="false"
+          formControlName="Composition"
+        ></textarea>
+      </mat-form-field>
+      <span class="invalid-feedback"> </span>
+      <!--MEDECINE COMPOSITION END-->
+
+      <!-- MEDECINE PRICE START -->
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          maxlength="5"
+          placeholder="Medecine Price"
+          formControlName="Price"
+        />
+      </mat-form-field>
+      <!-- MEDECINE PRICE END-->
+
+      <!-- MEDECINE PACKING START - DDL  -->
+      <mat-form-field class="full-width">
+        <mat-label>Medecine package selection</mat-label>
+        <mat-select formControlName="Package">
+          <mat-option *ngFor="let p of packages" [value]="p.value">
+            {{ p.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- MEDECINE PACKING END - DDL  -->
+
+      <!-- MEDECINE EXPIRATION DATE START-->
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          [matDatepickerFilter]="myFilter"
+          [matDatepicker]="expirationPicker"
+          placeholder="Choose expiration date"
+          formControlName="ExpirationDate"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="expirationPicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #expirationPicker></mat-datepicker>
+      </mat-form-field>
+      <!-- MEDICINE EXPIRATION DATE END -->
+
+      <!-- MEDECINE PRODUCTION DATE START -->
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          [matDatepicker]="productionPicker"
+          placeholder="Choose production"
+          formControlName="ProductionDate"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="productionPicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #productionPicker></mat-datepicker>
+      </mat-form-field>
+      <!-- MEDICINE PRODUCTION DATE END -->
+
+      <!--MAT CARD BUTTONS START -->
+
+      <mat-card-actions>
+        <button
+          mat-button
+          color="primary"
+          type="button"
+          title="Cancel your edits"
+          [routerLink]="['/medecines']"
+        >
+          Cancel
+        </button>
+        <!--EDIT MEDECINE END BUTTON -->
+
+        <!--DELETE MEDECINE BUTTON START -->
+        <button
+          mat-button
+          color="primary"
+          type="button"
+          title="Delete this Medecine"
+          (click)="deleteMedecine()"
+        >
+          Delete
+        </button>
+        <!--DELETE MEDECINE BUTTON END -->
+
+        <!-- SAVE BUTTON START -->
+        <button
+          mat-raised-button
+          id="medicine-submit"
+          color="primary"
+          click="submitMedicine()"
+        >
+          Sumbit medicine
+        </button>
+        <!-- SAVE BUTTON END -->
+      </mat-card-actions>
+      <!--MAT CARD BUTTONS START -->
+    </form>
+  </mat-card>
+</div>
+
+<pre>
+        {{ details | json }}
+</pre>

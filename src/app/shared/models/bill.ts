@@ -7,5 +7,5 @@ export class Bill {
     private issue_place: string,
     private sum: number,
     private billItem: BillItem
-  ) {  }
+  ) {}
 }
