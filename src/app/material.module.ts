@@ -1,9 +1,8 @@
 // this is the extraceed material
 // MATERIAL PACKAGE IMPORTS AND EXPORTS\
 // func
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import { NgModule } from '@angular/core';
+import { NgModule } from "@angular/core";
 import {
   MatButtonModule,
   MatChipsModule,
@@ -23,13 +22,13 @@ import {
   MatSortModule,
   MatCardModule,
   MatGridListModule,
-} from '@angular/material';
-
-
+  MatOptionModule,
+  MatSelectModule,
+  MatSnackBarModule
+} from "@angular/material";
 
 @NgModule({
   imports: [
-    BrowserAnimationsModule,
     MatButtonModule,
     MatChipsModule,
     MatInputModule,
@@ -48,6 +47,9 @@ import {
     MatSortModule,
     MatCardModule,
     MatGridListModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatSnackBarModule
   ],
   exports: [
     MatButtonModule,
@@ -67,7 +69,10 @@ import {
     MatPaginatorModule,
     MatSortModule,
     MatCardModule,
+    MatOptionModule,
+    MatSelectModule,
     MatGridListModule,
+    MatSnackBarModule
   ]
 })
 export class MaterialModule {}

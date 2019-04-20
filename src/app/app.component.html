@@ -1,12 +1,28 @@
-<nst-ui-toolbar [isLoggedIn]="isLoggedIn" [title]="title" [sidenav]="sidenav" (logout)="logout($event)"> </nst-ui-toolbar>
+<nst-ui-toolbar
+  [isLoggedIn]="isLoggedIn"
+  [title]="title"
+  [sidenav]="sidenav"
+  (logout)="logout($event)"
+>
+</nst-ui-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav [opened]="isSidenaveOpen(sidenav, true)" #sidenav mode="side" class="app-sidenav">
+  <mat-sidenav
+    [opened]="isSidenavOpen(sidenav, isLoggedIn)"
+    #sidenav
+    mode="side"
+    class="app-sidenav"
+  >
     <nav>
-      <a mat-button class="nav-link" *ngFor="let link of links"
-        [routerLink]="link.path" routerLinkActive="active">
-        <mat-icon>{{link.icon}}</mat-icon>
-        {{link.label}}
+      <a
+        mat-button
+        class="nav-link"
+        *ngFor="let link of links"
+        [routerLink]="link.path"
+        routerLinkActive="active"
+      >
+        <mat-icon>{{ link.icon }}</mat-icon>
+        {{ link.label }}
       </a>
     </nav>
   </mat-sidenav>
@@ -15,3 +31,4 @@
     <router-outlet></router-outlet>
   </div>
 </mat-sidenav-container>
+<nst-footer></nst-footer>

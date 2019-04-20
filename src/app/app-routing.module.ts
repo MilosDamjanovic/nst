@@ -1,36 +1,30 @@
-import { Perscription } from './model/perscription';
-import { LoginFormComponent } from './login-form/login-form.component';
-import { MedicineComponent } from './medicine/medicine.component';
-import { BillComponent } from './bill/bill.component';
-import {PerscriptionComponent} from './perscription/perscription.component';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { BillComponent } from "./bill/bill.component";
+import { LoginFormComponent } from "./login-form/login-form.component";
 
 const routes: Routes = [
   {
-    path: 'bills',
+    path: "bills",
     component: BillComponent
   },
   {
-    path: 'medicine/:name',
-    component: MedicineComponent
+    path: "medecine",
+    loadChildren: "./medicine/medicine.module#MedicineModule"
   },
   {
-    path: 'medicine/:manufacturer',
-    component: MedicineComponent
+    path: "perscription",
+    loadChildren: "./perscription/perscription.module#PerscriptionModule"
   },
   {
-    path: 'medicine',
-    component: MedicineComponent
-  },
-  {
-    path: 'perscription',
-    component: PerscriptionComponent
-  },
-  {
-    path: '',
+    path: "",
     component: LoginFormComponent
+  },
+  {
+    path: "**",
+    redirectTo: "",
+    pathMatch: "full"
   }
 ];
 
@@ -38,8 +32,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-
-export class AppRoutingModule {
-
-}
-
+export class AppRoutingModule {}

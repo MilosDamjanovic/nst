@@ -1,23 +1,31 @@
 <div class="page-header center-block">
   <h1 class="text-center">Issuing a bill</h1>
 </div>
-<div class="container">
+<div>
   <form [formGroup]="billForm" (ngSubmit)="submitAccount()">
     <div class="panel panel-default">
       <div class="panel-heading">
         <div class="special-width">
           <div class="form-group">
             <label for="issueDate">Issue date</label>
-            <input type="date"
-             class="form-control"
+            <input
+              type="date"
+              class="form-control"
               id="issueDate"
-              formControlName="issueDate">
+              formControlName="issueDate"
+            />
           </div>
           <div class="form-group">
             <label for="issuePlace">Issue place</label>
             <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle btn-block text-left" type="button" id="issuePlace" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="true">
+              <button
+                class="btn btn-default dropdown-toggle btn-block text-left"
+                type="button"
+                id="issuePlace"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="true"
+              >
                 Issue place
                 <span class="caret"></span>
               </button>
@@ -37,8 +45,9 @@
         </div>
       </div>
     </div>
-    <button type="button" class="btn btn-primary btn-lg center-block"
-     >Add bill item</button>
+    <button type="button" class="btn btn-primary btn-lg center-block">
+      Add bill item
+    </button>
     <!-- na pritisak dugmeta treba da se otvori modalna forma za unos racuna -->
 
     <div>
@@ -63,7 +72,7 @@
     </nav>
     -->
 
-  <div class="panel-body table-responsive">
+    <div class="panel-body table-responsive">
       <table class="table table-striped">
         <thead>
           <tr>
@@ -91,9 +100,12 @@
         </tr>
       </table>
     </div>
-    <button type="submit"
-            class="btn btn-success btn-lg center-block"
-            [disabled]="!billForm.valid">Save
+    <button
+      type="submit"
+      class="btn btn-success btn-lg center-block"
+      [disabled]="!billForm.valid"
+    >
+      Save
     </button>
   </form>
 </div>

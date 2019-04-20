@@ -1,52 +1,46 @@
-import { MedicineTableComponent } from './medicine/medicine-table/medicine-table.component';
-import { NoAccessComponent } from './no-access/no-access.component';
-import { MedicineService } from './services/medicine.service';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
-import {MaterialModule} from './material.module';
-import {AppRoutingModule} from './app-routing.module';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { LayoutModule } from "@angular/cdk/layout";
+import { HttpClientModule } from "@angular/common/http";
+import { NgModule } from "@angular/core";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
 
-
-import { AppComponent } from './app.component';
-import { PerscriptionFormComponent } from './perscription-form/perscription-form.component';
-import { MedicineComponent } from './medicine/medicine.component';
-import { LoginFormComponent } from './login-form/login-form.component';
-import { BillComponent } from './bill/bill.component';
-import { BillItemComponent } from './bill-item/bill-item.component';
-import { PerscriptionComponent } from './perscription/perscription.component';
-import {MedicineDialogComponent} from './medicine/medicine-table/medicine.dialog.component';
-import { AuthenticationService } from './services/authentication.service';
-import { MedicineDetailComponent } from './medicine/medicine-detail/medicine-detail.component';
-import { HttpClientModule } from '@angular/common/http';
-import { UiToolbarComponent } from './navigation/ui-toolbar/ui-toolbar.component';
-
-
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { BillItemComponent } from "./bill-item/bill-item.component";
+import { BillComponent } from "./bill/bill.component";
+import { LoginFormComponent } from "./login-form/login-form.component";
+import { MaterialModule } from "./material.module";
+import { UiToolbarComponent } from "./navigation/ui-toolbar/ui-toolbar.component";
+import { NoAccessComponent } from "./no-access/no-access.component";
+import { PerscriptionComponent } from "./perscription/perscription.component";
+import { FooterComponent } from "./footer/footer/footer.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    PerscriptionFormComponent,
-    MedicineComponent,
-    MedicineTableComponent,
+
     LoginFormComponent,
     BillComponent,
     BillItemComponent,
-    PerscriptionComponent,
-    MedicineDetailComponent,
-    MedicineDialogComponent,
+
     UiToolbarComponent,
-    NoAccessComponent
+    NoAccessComponent,
+    FooterComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
+    LayoutModule,
+    FormsModule,
     ReactiveFormsModule,
-    MaterialModule,
-    AppRoutingModule
+    ReactiveFormsModule,
+    MaterialModule
   ],
-  providers: [MedicineService, AuthenticationService],
-  bootstrap: [AppComponent],
-  entryComponents: [MedicineDialogComponent]
+  // temporary solution
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
